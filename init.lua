@@ -1,0 +1,6 @@
+require("options")
+require("plugins.lualine")
+require("plugins.lz-n")
+require("plugins.nvim-tree")
+require("lsp")
+vim.cmd.colorscheme("everblush")
