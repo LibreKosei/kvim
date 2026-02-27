@@ -2,6 +2,14 @@ vim.lsp.config('lua_ls', {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
     root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
+    -- on_attach = function(client, bufnr)
+    --     vim.lsp.completion.enable(true, client.id, bufnr, {
+    --         autotrigger = true,
+    --         convert = function(item)
+    --             return { abbr = item.label:gsub('%b()', '') }
+    --         end,
+    --     })
+    -- end,
     settings = {
         Lua = {
             runtime = {

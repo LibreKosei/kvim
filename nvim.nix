@@ -15,6 +15,7 @@ let
         (lib.fileset.unions [
             (lib.fileset.maybeMissing ./result)
             (lib.fileset.maybeMissing ./.git)
+            (lib.fileset.maybeMissing ./.github)
         ]);
 
     rtp = stdenv.mkDerivation {
@@ -55,24 +56,29 @@ let
             vim.opt.rtp:prepend('${rtp}/after')
         '';
 in
-    wrapNeovimUnstable neovim-unwrapped {
+    wrapNeovimUnstable neovim-unwrapped  rec {
         plugins = with vimPlugins; [
-            { plugin = nvim-tree-lua; optional = true; }
+            { plugin = oil-nvim; optional = true; }
             { plugin = lz-n; optional = false; }
             { plugin = everblush-nvim; optional = false; }
             { plugin = lualine-nvim; optional = false; }
             { plugin = bufferline-nvim; optional = true; }
-            
+            { plugin = nvim-autopairs; optional = true; }
+            { plugin = which-key-nvim; optional = true; }
+            { plugin = blink-cmp; optional = true; }
+            { plugin = nvim-treesitter.withAllGrammars; optional = false; }
         ];
+
         luaRcContent = initLua;
         
-        buildInputs = languageServers;
+        buildInputs = languageServers ++ [ pkgs.ripgrep ];
         nativeBuildInputs = [ pkgs.makeWrapper ];
 
         wrapperArgs = [
             "--set" "NVIM_APPNAME" "kvim"
+            "--set" "KVIM_RUNTIME" "${rtp}"
         ] ++
         lib.optionals (languageServers != []) [
-            "--prefix" "PATH" ":" (lib.makeBinPath languageServers)
+            "--prefix" "PATH" ":" (lib.makeBinPath buildInputs)
         ];
     }
