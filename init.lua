@@ -1,6 +1,7 @@
+--- core
 require("options")
-
---------------------------------------           Plugins         ------------------------------------------
+require("keybinds")
+--- Plugins 
 require("plugins.lualine")
 require("plugins.oil")
 require("plugins.bufferline")
@@ -9,9 +10,9 @@ require("plugins.blink-cmp")
 require("plugins.nvim-autopairs")
 require("plugins.treesitter")
 require("plugins.toggleterm")
--------------------------------------- Language Server Protocols ------------------------------------------
+--- Language Server Protocols 
 require("lsp.lua_ls")
 require("lsp.nixd")
 
---------------------------------------             Lua           ------------------------------------------
+--- Lua
 vim.cmd.colorscheme("everblush")
