@@ -67,6 +67,7 @@ in
             { plugin = which-key-nvim; optional = true; }
             { plugin = blink-cmp; optional = true; }
             { plugin = nvim-treesitter.withAllGrammars; optional = false; }
+            { plugin = toggleterm-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;
