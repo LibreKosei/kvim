@@ -4,7 +4,7 @@ require("nvim-treesitter.config").setup({
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { '*' },
+    pattern = { 'nix', 'lua', 'qml', 'hs', 'rs', 'sh' },
     callback = function ()
         vim.treesitter.start()
     end
