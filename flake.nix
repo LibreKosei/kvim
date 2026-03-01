@@ -9,7 +9,7 @@
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};
-            kvim = pkgs.callPackage ./nvim.nix {};
+            kvim = pkgs.callPackage ./default.nix {};
         in 
     {
         packages.x86_64-linux.default = pkgs.callPackage ./default.nix {};
