@@ -12,7 +12,7 @@
             kvim = pkgs.callPackage ./nvim.nix {};
         in 
     {
-        packages.x86_64-linux.default = pkgs.callPackage ./nvim.nix {};
+        packages.x86_64-linux.default = pkgs.callPackage ./default.nix {};
         apps.${system}.default = {
             type = "app";
             program = "${kvim}/bin/nvim";
