@@ -1,7 +1,8 @@
 require("lz.n").load {
     "toggleterm.nvim",
     keys = {
-      { "<A-h>", "<CMD>ToggleTerm direction=horizontal<CR>", desc = "ToggleTerm"}
+      { "<A-h>", "<CMD>ToggleTerm direction=horizontal<CR>", desc = "ToggleTerm open horizontally" },
+      { "<A-v>", "<CMD>ToggleTerm<CR>", desc = "ToggleTerm open vertically" }
     },
     after = function ()
         require("toggleterm").setup({})

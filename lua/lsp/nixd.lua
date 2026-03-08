@@ -3,6 +3,11 @@ vim.lsp.config('nixd', {
     filetypes = { 'nix' },
     root_markers = { 'flake.nix', '.git' },
     settings = {
+        nixd = {
+            formatting = {
+                command = { "nixfmt" },
+            },
+        },
         nixpkgs = {
             expr = 'import (builtins.getFlake "github:LibreKosei/dots").inputs.nixpkgs {}',
         },
