@@ -44,6 +44,7 @@ let
     languageServers = with pkgs; [
         lua-language-server
         nixd
+        rust-analyzer
     ];
     
     initLua = 
@@ -72,7 +73,12 @@ in
 
         luaRcContent = initLua;
         
-        buildInputs = languageServers ++ [ pkgs.ripgrep ];
+        buildInputs = languageServers ++ 
+            [ 
+                pkgs.ripgrep
+                pkgs.nixfmt
+            ];
+
         nativeBuildInputs = [ pkgs.makeWrapper ];
 
         wrapperArgs = [
