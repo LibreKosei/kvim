@@ -69,6 +69,10 @@ in
             { plugin = blink-cmp; optional = true; }
             { plugin = nvim-treesitter.withAllGrammars; optional = false; }
             { plugin = toggleterm-nvim; optional = true; }
+
+            # colorscheme
+            { plugin = kanagawa-nvim; optional = true; }
+            { plugin = tokyonight-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;
