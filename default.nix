@@ -57,7 +57,8 @@ let
             vim.opt.rtp:prepend('${rtp}/after')
         '';
 in
-    wrapNeovimUnstable neovim-unwrapped  rec {
+    wrapNeovimUnstable neovim-unwrapped rec {
+        name = "kvim";
         plugins = with vimPlugins; [
             # utils
             { plugin = oil-nvim; optional = true; }
