@@ -67,9 +67,12 @@ in
             { plugin = nvim-autopairs; optional = true; }
             { plugin = which-key-nvim; optional = true; }
             { plugin = blink-cmp; optional = true; }
-            { plugin = nvim-treesitter.withAllGrammars; optional = false; }
             { plugin = toggleterm-nvim; optional = true; }
             { plugin = fzf-lua; optional = true; }
+
+            # nvim-treesitter
+            { plugin = nvim-treesitter.withAllGrammars; optional = false; }
+            { plugin = nvim-treesitter-context; optional = false; }
 
             # colorscheme
             { plugin = everblush-nvim; optional = true; }
@@ -86,6 +89,7 @@ in
             [ 
                 pkgs.ripgrep
                 pkgs.nixfmt
+                pkgs.fzf
             ];
 
         nativeBuildInputs = [ pkgs.makeWrapper ];

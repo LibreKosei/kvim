@@ -11,6 +11,7 @@ require("plugins.blink-cmp")
 require("plugins.nvim-autopairs")
 require("plugins.treesitter")
 require("plugins.toggleterm")
+require("plugins.fzf")
 --- Language Server Protocols 
 require("lsp.lua_ls")
 require("lsp.nixd")
