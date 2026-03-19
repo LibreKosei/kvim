@@ -1,6 +1,7 @@
 --- core
 require("options")
 require("keybinds")
+require("colorscheme")
 --- Plugins 
 require("plugins.lualine")
 require("plugins.oil")

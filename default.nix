@@ -59,9 +59,9 @@ let
 in
     wrapNeovimUnstable neovim-unwrapped  rec {
         plugins = with vimPlugins; [
+            # utils
             { plugin = oil-nvim; optional = true; }
             { plugin = lz-n; optional = false; }
-            { plugin = everblush-nvim; optional = false; }
             { plugin = lualine-nvim; optional = false; }
             { plugin = bufferline-nvim; optional = true; }
             { plugin = nvim-autopairs; optional = true; }
@@ -69,10 +69,15 @@ in
             { plugin = blink-cmp; optional = true; }
             { plugin = nvim-treesitter.withAllGrammars; optional = false; }
             { plugin = toggleterm-nvim; optional = true; }
+            { plugin = fzf-lua; optional = true; }
 
             # colorscheme
+            { plugin = everblush-nvim; optional = true; }
             { plugin = kanagawa-nvim; optional = true; }
             { plugin = tokyonight-nvim; optional = true; }
+            { plugin = material-nvim; optional = true; }
+            { plugin = nightfox-nvim; optional = true; }
+            { plugin = catppuccin-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;
