@@ -1,5 +1,6 @@
 { neovim-unwrapped, vimUtils, vimPlugins, wrapNeovimUnstable, fetchFromGitHub, lib, stdenv, pkgs}:
 let 
+    appName = "kvim";
     everblush-nvim = (vimUtils.buildVimPlugin {
         name = "everblush.nvim";
         src = fetchFromGitHub {
@@ -56,9 +57,8 @@ let
             vim.opt.rtp:prepend('${rtp}/nvim')
             vim.opt.rtp:prepend('${rtp}/after')
         '';
-in
-    wrapNeovimUnstable neovim-unwrapped rec {
-        name = "kvim";
+
+    neovim-wrapped = wrapNeovimUnstable neovim-unwrapped rec {
         plugins = with vimPlugins; [
             # utils
             { plugin = oil-nvim; optional = true; }
@@ -70,6 +70,7 @@ in
             { plugin = blink-cmp; optional = true; }
             { plugin = toggleterm-nvim; optional = true; }
             { plugin = fzf-lua; optional = true; }
+            { plugin = nvim-tree-lua; optional = true; }
 
             # nvim-treesitter
             { plugin = nvim-treesitter.withAllGrammars; optional = false; }
@@ -102,4 +103,10 @@ in
         lib.optionals (languageServers != []) [
             "--prefix" "PATH" ":" (lib.makeBinPath buildInputs)
         ];
-    }
+    };
+in 
+    neovim-wrapped.overrideAttrs (oa: {
+        buildPhase = oa.buildPhase + ''
+            mv $out/bin/nvim $out/bin/${lib.escapeShellArg appName}
+        '';
+    })

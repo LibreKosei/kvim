@@ -15,7 +15,7 @@
         packages.x86_64-linux.default = pkgs.callPackage ./default.nix {};
         apps.${system}.default = {
             type = "app";
-            program = "${kvim}/bin/nvim";
+            program = "${kvim}/bin/kvim";
         };
     };
 }

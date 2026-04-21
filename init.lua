@@ -12,6 +12,7 @@ require("plugins.nvim-autopairs")
 require("plugins.treesitter")
 require("plugins.toggleterm")
 require("plugins.fzf")
+require("plugins.nvim-tree")
 --- Language Server Protocols 
 require("lsp.lua_ls")
 require("lsp.nixd")

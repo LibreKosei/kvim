@@ -26,5 +26,6 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "nix",
     callback = function ()
         vim.lsp.enable("nixd")
+        vim.treesitter.start()
     end
 })
