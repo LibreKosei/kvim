@@ -47,6 +47,15 @@ let
         nixd
         rust-analyzer
     ];
+
+    ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 
+        [
+            p.c 
+            p.rust 
+            p.nix 
+            p.lua 
+        ]
+    );
     
     initLua = 
         ''
@@ -73,7 +82,7 @@ let
             { plugin = nvim-tree-lua; optional = true; }
 
             # nvim-treesitter
-            { plugin = nvim-treesitter.withAllGrammars; optional = false; }
+            { plugin = ts-plugin; optional = false; }
             { plugin = nvim-treesitter-context; optional = false; }
 
             # colorscheme
@@ -83,6 +92,7 @@ let
             { plugin = material-nvim; optional = true; }
             { plugin = nightfox-nvim; optional = true; }
             { plugin = catppuccin-nvim; optional = true; }
+            { plugin = onedarkpro-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;

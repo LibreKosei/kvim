@@ -43,5 +43,13 @@ require("lz.n").load {
             "catppuccin-macchiato",
             "cappuccin-mocha",
         },
+    },
+    {
+        "onedarkpro.nvim",
+        colorscheme = {
+            "onedark",
+            "onedark_dark",
+            "onedark_vivid",
+        },
     }
 }
