@@ -6,6 +6,7 @@ require("lz.n").load {
         },
         after = function ()
             require("nvim-tree").setup({
+
                 view = {
                     adaptive_size = true,
                 },

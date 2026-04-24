@@ -5,7 +5,6 @@ require("colorscheme")
 
 --- Plugins 
 require("plugins.lualine")
--- require("plugins.oil")
 require("plugins.bufferline")
 require("plugins.which-key")
 require("plugins.blink-cmp")

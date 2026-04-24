@@ -51,5 +51,11 @@ require("lz.n").load {
             "onedark_dark",
             "onedark_vivid",
         },
+    },
+    {
+        "gruvbox.nvim",
+        colorscheme = {
+            "gruvbox"
+        },
     }
 }
