@@ -46,6 +46,7 @@ let
         lua-language-server
         nixd
         rust-analyzer
+        pyright
     ];
 
     ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 
