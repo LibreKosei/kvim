@@ -88,6 +88,8 @@ let
 
             # colorscheme
             { plugin = everblush-nvim; optional = true; }
+            { plugin = everforest; optional = true; }
+            { plugin = onedark-nvim; optional = true; }
             { plugin = kanagawa-nvim; optional = true; }
             { plugin = tokyonight-nvim; optional = true; }
             { plugin = material-nvim; optional = true; }
