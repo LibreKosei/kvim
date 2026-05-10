@@ -20,4 +20,4 @@ require("lsp.lua_ls")
 require("lsp.nixd")
 
 --- Lua
-vim.cmd.colorscheme("everblush")
+vim.cmd.colorscheme("onedark")
