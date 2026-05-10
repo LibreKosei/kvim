@@ -71,7 +71,6 @@ let
     neovim-wrapped = wrapNeovimUnstable neovim-unwrapped rec {
         plugins = with vimPlugins; [
             # utils
-            { plugin = oil-nvim; optional = true; }
             { plugin = lz-n; optional = false; }
             { plugin = lualine-nvim; optional = false; }
             { plugin = bufferline-nvim; optional = true; }
@@ -81,6 +80,7 @@ let
             { plugin = toggleterm-nvim; optional = true; }
             { plugin = fzf-lua; optional = true; }
             { plugin = nvim-tree-lua; optional = true; }
+            { plugin = gitsigns-nvim; optional = true; }
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }
