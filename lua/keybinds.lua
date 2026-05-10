@@ -3,3 +3,7 @@ vim.keymap.set('n', '<leader>h', '<CMD>noh<CR>', {
     silent = true,
     desc = "Clear search"
 })
+
+vim.keymap.set('n', ';', ':', {
+    desc = "CMD enter command mode",
+})
