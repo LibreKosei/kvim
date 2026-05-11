@@ -20,6 +20,7 @@ require("plugins.gitsigns")
 require("lsp.lua_ls")
 require("lsp.nixd")
 require('lsp.pyright')
+require('lsp.rust_analyzer')
 
 --- Lua
 vim.cmd.colorscheme("onedark")
