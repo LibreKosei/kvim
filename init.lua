@@ -21,6 +21,7 @@ require("lsp.lua_ls")
 require("lsp.nixd")
 require('lsp.pyright')
 require('lsp.rust_analyzer')
+require('lsp.qmlls')
 
 --- Lua
 vim.cmd.colorscheme("onedark")

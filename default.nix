@@ -47,6 +47,7 @@ let
         nixd
         rust-analyzer
         pyright
+        kdePackages.qtdeclarative
     ];
 
     ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 
