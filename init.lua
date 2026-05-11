@@ -19,12 +19,7 @@ require("plugins.gitsigns")
 --- Language Server Protocols 
 require("lsp.lua_ls")
 require("lsp.nixd")
-
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function (ev)
-        vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {})
-    end
-})
+require('lsp.pyright')
 
 --- Lua
 vim.cmd.colorscheme("onedark")
