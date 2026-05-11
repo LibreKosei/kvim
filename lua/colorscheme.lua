@@ -57,5 +57,11 @@ require("lz.n").load {
         colorscheme = {
             "gruvbox"
         },
-    }
+    },
+    {
+        "everforest",
+        colorscheme = {
+              "everforest"
+        },
+    },
 }
