@@ -13,6 +13,7 @@ require("plugins.treesitter")
 require("plugins.toggleterm")
 require("plugins.fzf")
 require("plugins.nvim-tree")
+require("plugins.gitsigns")
 
 
 --- Language Server Protocols 

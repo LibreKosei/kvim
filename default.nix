@@ -80,6 +80,7 @@ let
             { plugin = toggleterm-nvim; optional = true; }
             { plugin = fzf-lua; optional = true; }
             { plugin = nvim-tree-lua; optional = true; }
+            { plugin = nvim-web-devicons; optional = false; }
             { plugin = gitsigns-nvim; optional = true; }
 
             # nvim-treesitter
