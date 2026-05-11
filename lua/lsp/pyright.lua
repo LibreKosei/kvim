@@ -13,7 +13,7 @@ vim.lsp.config('pyright', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'py',
+    pattern = 'python',
     callback = function ()
         vim.lsp.enable('pyright')
         vim.treesitter.start()

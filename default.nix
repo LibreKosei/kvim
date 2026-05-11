@@ -55,6 +55,7 @@ let
             p.rust 
             p.nix 
             p.lua 
+            p.python
         ]
     );
     
