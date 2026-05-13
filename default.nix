@@ -72,7 +72,7 @@ let
 
     neovim-wrapped = wrapNeovimUnstable neovim-unwrapped rec {
         plugins = with vimPlugins; [
-            # utils
+            # Necessary
             { plugin = lz-n; optional = false; }
             { plugin = lualine-nvim; optional = false; }
             { plugin = bufferline-nvim; optional = true; }
@@ -84,6 +84,7 @@ let
             { plugin = nvim-tree-lua; optional = true; }
             { plugin = nvim-web-devicons; optional = false; }
             { plugin = gitsigns-nvim; optional = true; }
+            { plugin = nvim-colorizer-lua; optional = true; } 
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }

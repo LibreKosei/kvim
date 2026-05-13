@@ -14,6 +14,7 @@ require("plugins.toggleterm")
 require("plugins.fzf")
 require("plugins.nvim-tree")
 require("plugins.gitsigns")
+require('plugins.colorizer')
 
 
 --- Language Server Protocols 
