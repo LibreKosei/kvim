@@ -57,6 +57,12 @@ let
             p.nix 
             p.lua 
             p.python
+            p.markdown
+            p.markdown_inline
+            p.html
+            p.latex 
+            p.yaml
+            p.typst
         ]
     );
     
@@ -85,6 +91,7 @@ let
             { plugin = nvim-web-devicons; optional = false; }
             { plugin = gitsigns-nvim; optional = true; }
             { plugin = nvim-colorizer-lua; optional = true; } 
+            { plugin = markview-nvim; optional = true; }
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }

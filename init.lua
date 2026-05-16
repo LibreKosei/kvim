@@ -16,6 +16,7 @@ require("plugins.fzf")
 require("plugins.nvim-tree")
 require("plugins.gitsigns")
 require('plugins.colorizer')
+require('plugins.markview')
 
 
 --- Language Server Protocols 
