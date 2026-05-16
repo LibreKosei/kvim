@@ -2,6 +2,7 @@
 require("options")
 require("keybinds")
 require("colorscheme")
+require('autocmd')
 
 --- Plugins 
 require("plugins.lualine")
@@ -25,4 +26,4 @@ require('lsp.rust_analyzer')
 require('lsp.qmlls')
 
 --- Lua
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("gruvbox")

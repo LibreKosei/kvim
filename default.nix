@@ -88,7 +88,7 @@ let
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }
-            { plugin = nvim-treesitter-context; optional = false; }
+            { plugin = nvim-treesitter-context; optional = true; }
 
             # colorscheme
             { plugin = everblush-nvim; optional = true; }
