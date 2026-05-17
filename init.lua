@@ -27,4 +27,4 @@ require('lsp.rust_analyzer')
 require('lsp.qmlls')
 
 --- Lua
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("everblush")
