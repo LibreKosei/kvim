@@ -108,6 +108,7 @@ let
             { plugin = catppuccin-nvim; optional = true; }
             { plugin = onedarkpro-nvim; optional = true; }
             { plugin = gruvbox-nvim; optional = true; }
+            { plugin = bamboo-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;

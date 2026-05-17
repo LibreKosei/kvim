@@ -41,7 +41,7 @@ require("lz.n").load {
             "catppuccin-frappe",
             "catppuccin-latte",
             "catppuccin-macchiato",
-            "cappuccin-mocha",
+            "catppuccin-mocha",
         },
     },
     {
@@ -62,6 +62,15 @@ require("lz.n").load {
         "everforest",
         colorscheme = {
               "everforest"
+        },
+    },
+    {
+        "bamboo.nvim",
+        colorscheme = {
+            "bamboo",
+            "bamboo-light",
+            "bamboo-vulgaris",
+            "bamboo-multiplex",
         },
     },
 }
