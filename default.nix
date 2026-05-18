@@ -112,6 +112,7 @@ let
             { plugin = gitsigns-nvim; optional = true; }
             { plugin = nvim-colorizer-lua; optional = true; } 
             { plugin = markview-nvim; optional = true; }
+            { plugin = obsidian-nvim; optional = true; }
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }

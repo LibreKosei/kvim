@@ -17,6 +17,7 @@ require("plugins.nvim-tree")
 require("plugins.gitsigns")
 require('plugins.colorizer')
 require('plugins.markview')
+require('plugins.obsidian')
 
 
 --- Language Server Protocols 
@@ -27,4 +28,4 @@ require('lsp.rust_analyzer')
 require('lsp.qmlls')
 
 --- Lua
-vim.cmd.colorscheme("everblush")
+vim.cmd.colorscheme("pasteldark")
