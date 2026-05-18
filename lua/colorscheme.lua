@@ -1,3 +1,9 @@
+local function match_colors(prefix)
+    return vim.tbl_filter(function (name) 
+        return name:match("^" .. prefix)
+    end, vim.fn.getcompletion("", "color"))
+end
+
 require("lz.n").load {
     {
         "kanagawa.nvim",
@@ -73,4 +79,14 @@ require("lz.n").load {
             "bamboo-multiplex",
         },
     },
+    {
+        "vimplugin-pastel.nvim",
+        colorscheme = match_colors("pastel"),
+    },
+    {
+        "vimplugin-one_monokai.nvim",
+        colorscheme = {
+            "one_monokai",
+        },
+    }
 }
