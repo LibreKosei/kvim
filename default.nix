@@ -67,6 +67,7 @@ let
         nixd
         rust-analyzer
         pyright
+        markdown-oxide
         kdePackages.qtdeclarative
     ];
 
