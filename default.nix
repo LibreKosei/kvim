@@ -11,6 +11,26 @@ let
         };
     });
 
+    pastel-nvim = (vimUtils.buildVimPlugin {
+        name = "pastel.nvim";
+        src = fetchFromGitHub {
+            owner = "ankushbhagats";
+            repo = "pastel.nvim";
+            rev = "c2423b7c391cf49c8eab39a6e0e3770a49e01f22";
+            hash = "sha256-bFIsCidLfHkJ6Ir4BElKBvVPeuJS+/S00A/tTYNYY60=";
+        };
+    });
+
+    one-monokai-nvim = (vimUtils.buildVimPlugin {
+        name = "one_monokai.nvim";
+        src = fetchFromGitHub {
+            owner = "cpea2506";
+            repo = "one_monokai.nvim";
+            rev = "903b3e8923d67d3ee4b67f462b2b112012d7a69d";
+            hash = "sha256-D2g8YmIQOc7tJpXs44riaLru2ogNsJhG+3EUcVfQ23A=";
+        };
+    });
+
     rtpSrc = lib.fileset.difference
         ./.
         (lib.fileset.unions [
@@ -109,6 +129,8 @@ let
             { plugin = onedarkpro-nvim; optional = true; }
             { plugin = gruvbox-nvim; optional = true; }
             { plugin = bamboo-nvim; optional = true; }
+            { plugin = pastel-nvim; optional = true; }
+            { plugin = one-monokai-nvim; optional = true; }
         ];
 
         luaRcContent = initLua;
