@@ -69,6 +69,9 @@ let
         pyright
         markdown-oxide
         kdePackages.qtdeclarative
+        svelte-language-server
+        vscode-langservers-extracted
+        typescript-language-server
     ];
 
     ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 

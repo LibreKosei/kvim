@@ -27,6 +27,9 @@ require('lsp.pyright')
 require('lsp.rust_analyzer')
 require('lsp.qmlls')
 require('lsp.markdown-oxide')
+require('lsp.html')
+require('lsp.cssls')
+require('lsp.ts_ls')
 
 --- Lua
 vim.cmd.colorscheme("pasteldark")
