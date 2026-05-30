@@ -72,6 +72,7 @@ let
         svelte-language-server
         vscode-langservers-extracted
         typescript-language-server
+        haskell-language-server
     ];
 
     ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 
@@ -87,6 +88,7 @@ let
             p.latex 
             p.yaml
             p.typst
+            p.haskell
         ]
     );
     
@@ -145,6 +147,7 @@ let
                 pkgs.ripgrep
                 pkgs.nixfmt
                 pkgs.fzf
+                pkgs.ghc
             ];
 
         nativeBuildInputs = [ pkgs.makeWrapper ];

@@ -30,6 +30,7 @@ require('lsp.markdown-oxide')
 require('lsp.html')
 require('lsp.cssls')
 require('lsp.ts_ls')
+require('lsp.hls')
 
 --- Lua
 vim.cmd.colorscheme("pasteldark")
