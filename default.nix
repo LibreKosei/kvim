@@ -73,6 +73,7 @@ let
         vscode-langservers-extracted
         typescript-language-server
         haskell-language-server
+        texlab
     ];
 
     ts-plugin = vimPlugins.nvim-treesitter.withPlugins (p: 
@@ -119,6 +120,7 @@ let
             { plugin = nvim-colorizer-lua; optional = true; } 
             { plugin = markview-nvim; optional = true; }
             { plugin = obsidian-nvim; optional = true; }
+            { plugin = vimtex; optional = true; }
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }
@@ -148,6 +150,7 @@ let
                 pkgs.nixfmt
                 pkgs.fzf
                 pkgs.ghc
+                pkgs.texlivePackages.latexmk
             ];
 
         nativeBuildInputs = [ pkgs.makeWrapper ];

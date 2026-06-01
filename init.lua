@@ -18,6 +18,7 @@ require("plugins.gitsigns")
 require('plugins.colorizer')
 require('plugins.markview')
 require('plugins.obsidian')
+require('plugins.vimtex')
 
 
 --- Language Server Protocols 
@@ -31,6 +32,7 @@ require('lsp.html')
 require('lsp.cssls')
 require('lsp.ts_ls')
 require('lsp.hls')
+require('lsp.latex')
 
 --- Lua
 vim.cmd.colorscheme("pasteldark")

@@ -1,5 +1,9 @@
+---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.config").setup({
-    highlight = { enable = true },
+    highlight = {
+        enable = true,
+        disable = { 'latex' },
+    },
     auto_install = false,
     sync_install = false,
 })
