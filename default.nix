@@ -162,6 +162,9 @@ let
         lib.optionals (languageServers != []) [
             "--prefix" "PATH" ":" (lib.makeBinPath buildInputs)
         ];
+
+        withNodeJs = true;
+        withPython3 = true;
     };
 in 
     neovim-wrapped.overrideAttrs (oa: {
