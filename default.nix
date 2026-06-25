@@ -121,6 +121,8 @@ let
             { plugin = markview-nvim; optional = true; }
             { plugin = obsidian-nvim; optional = true; }
             { plugin = vimtex; optional = true; }
+            { plugin = luasnip; optional = false; }
+            { plugin = friendly-snippets; optional = false; }
 
             # nvim-treesitter
             { plugin = ts-plugin; optional = false; }

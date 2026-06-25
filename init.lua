@@ -19,6 +19,7 @@ require('plugins.colorizer')
 require('plugins.markview')
 require('plugins.obsidian')
 require('plugins.vimtex')
+require('plugins.luasnip')
 
 
 --- Language Server Protocols 
