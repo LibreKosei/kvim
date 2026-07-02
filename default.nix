@@ -90,6 +90,7 @@ let
             p.yaml
             p.typst
             p.haskell
+            p.qmljs
         ]
     );
     
