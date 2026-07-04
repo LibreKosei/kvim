@@ -2,7 +2,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.lsp.config('css', {
-    cmd = { 'vscode-css-language-server' },
+    cmd = { 'vscode-css-language-server', '--stdio' },
     filetypes = { 'css', 'scss', 'less' },
     root_markers = { '.git', 'package.json' },
     capabilities = capabilities,
