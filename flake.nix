@@ -12,10 +12,19 @@
             kvim = pkgs.callPackage ./default.nix {};
         in 
     {
-        packages.x86_64-linux.default = pkgs.callPackage ./default.nix {};
-        apps.${system}.default = {
-            type = "app";
-            program = "${kvim}/bin/kvim";
+        packages.x86_64-linux = { 
+            default = pkgs.callPackage ./default.nix {};
+            neuvim = pkgs.callPackage ./default.nix {
+                appName = "neuvim";
+                withConfig = false;
+                withLangServers = false;
+            };
+        };
+        apps.${system} = {
+            default = {
+                type = "app";
+                program = "${kvim}/bin/kvim";
+            };
         };
     };
 }
