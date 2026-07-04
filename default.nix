@@ -1,6 +1,9 @@
-{ neovim-unwrapped, vimUtils, vimPlugins, wrapNeovimUnstable, fetchFromGitHub, lib, stdenv, pkgs}:
+{ neovim-unwrapped, vimUtils, vimPlugins, wrapNeovimUnstable, fetchFromGitHub, lib, stdenv, pkgs
+, appName ? "kvim"
+, withConfig ? true
+, withLangServers ? true
+}:
 let 
-    appName = "kvim";
     everblush-nvim = (vimUtils.buildVimPlugin {
         name = "everblush.nvim";
         src = fetchFromGitHub {
@@ -93,6 +96,53 @@ let
             p.qmljs
         ]
     );
+    plugins = with vimPlugins; [
+        # Necessary
+        { plugin = lz-n; optional = false; }
+        { plugin = lualine-nvim; optional = false; }
+        { plugin = bufferline-nvim; optional = true; }
+        { plugin = nvim-autopairs; optional = true; }
+        { plugin = which-key-nvim; optional = true; }
+        { plugin = blink-cmp; optional = true; }
+        { plugin = toggleterm-nvim; optional = true; }
+        { plugin = fzf-lua; optional = true; }
+        { plugin = nvim-tree-lua; optional = true; }
+        { plugin = nvim-web-devicons; optional = false; }
+        { plugin = gitsigns-nvim; optional = true; }
+        { plugin = nvim-colorizer-lua; optional = true; } 
+        { plugin = markview-nvim; optional = true; }
+        { plugin = obsidian-nvim; optional = true; }
+        { plugin = vimtex; optional = true; }
+        { plugin = luasnip; optional = false; }
+        { plugin = friendly-snippets; optional = false; }
+
+        # nvim-treesitter
+        { plugin = ts-plugin; optional = false; }
+        { plugin = nvim-treesitter-context; optional = true; }
+
+        # colorscheme
+        { plugin = everblush-nvim; optional = true; }
+        { plugin = everforest; optional = true; }
+        { plugin = onedark-nvim; optional = true; }
+        { plugin = kanagawa-nvim; optional = true; }
+        { plugin = tokyonight-nvim; optional = true; }
+        { plugin = material-nvim; optional = true; }
+        { plugin = nightfox-nvim; optional = true; }
+        { plugin = catppuccin-nvim; optional = true; }
+        { plugin = onedarkpro-nvim; optional = true; }
+        { plugin = gruvbox-nvim; optional = true; }
+        { plugin = bamboo-nvim; optional = true; }
+        { plugin = pastel-nvim; optional = true; }
+        { plugin = one-monokai-nvim; optional = true; }
+    ];
+
+    buildInputs = [ 
+            pkgs.ripgrep
+            pkgs.nixfmt
+            pkgs.fzf
+            pkgs.ghc
+            pkgs.texlivePackages.latexmk
+    ] ++ lib.optionals withLangServers languageServers;
     
     initLua = 
         ''
@@ -104,65 +154,18 @@ let
             vim.opt.rtp:prepend('${rtp}/after')
         '';
 
-    neovim-wrapped = wrapNeovimUnstable neovim-unwrapped rec {
-        plugins = with vimPlugins; [
-            # Necessary
-            { plugin = lz-n; optional = false; }
-            { plugin = lualine-nvim; optional = false; }
-            { plugin = bufferline-nvim; optional = true; }
-            { plugin = nvim-autopairs; optional = true; }
-            { plugin = which-key-nvim; optional = true; }
-            { plugin = blink-cmp; optional = true; }
-            { plugin = toggleterm-nvim; optional = true; }
-            { plugin = fzf-lua; optional = true; }
-            { plugin = nvim-tree-lua; optional = true; }
-            { plugin = nvim-web-devicons; optional = false; }
-            { plugin = gitsigns-nvim; optional = true; }
-            { plugin = nvim-colorizer-lua; optional = true; } 
-            { plugin = markview-nvim; optional = true; }
-            { plugin = obsidian-nvim; optional = true; }
-            { plugin = vimtex; optional = true; }
-            { plugin = luasnip; optional = false; }
-            { plugin = friendly-snippets; optional = false; }
+    neovim-wrapped = wrapNeovimUnstable neovim-unwrapped {
+        inherit plugins buildInputs;
 
-            # nvim-treesitter
-            { plugin = ts-plugin; optional = false; }
-            { plugin = nvim-treesitter-context; optional = true; }
-
-            # colorscheme
-            { plugin = everblush-nvim; optional = true; }
-            { plugin = everforest; optional = true; }
-            { plugin = onedark-nvim; optional = true; }
-            { plugin = kanagawa-nvim; optional = true; }
-            { plugin = tokyonight-nvim; optional = true; }
-            { plugin = material-nvim; optional = true; }
-            { plugin = nightfox-nvim; optional = true; }
-            { plugin = catppuccin-nvim; optional = true; }
-            { plugin = onedarkpro-nvim; optional = true; }
-            { plugin = gruvbox-nvim; optional = true; }
-            { plugin = bamboo-nvim; optional = true; }
-            { plugin = pastel-nvim; optional = true; }
-            { plugin = one-monokai-nvim; optional = true; }
-        ];
-
-        luaRcContent = initLua;
-        
-        buildInputs = languageServers ++ 
-            [ 
-                pkgs.ripgrep
-                pkgs.nixfmt
-                pkgs.fzf
-                pkgs.ghc
-                pkgs.texlivePackages.latexmk
-            ];
+        luaRcContent = lib.optionalString withConfig initLua;
 
         nativeBuildInputs = [ pkgs.makeWrapper ];
 
         wrapperArgs = [
-            "--set" "NVIM_APPNAME" "kvim"
+            "--set" "NVIM_APPNAME" appName
+        ] ++ lib.optionals withConfig [
             "--set" "KVIM_RUNTIME" "${rtp}"
-        ] ++
-        lib.optionals (languageServers != []) [
+        ] ++ lib.optionals (buildInputs != []) [
             "--prefix" "PATH" ":" (lib.makeBinPath buildInputs)
         ];
 
