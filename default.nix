@@ -157,7 +157,8 @@ let
     neovim-wrapped = wrapNeovimUnstable neovim-unwrapped {
         inherit plugins buildInputs;
 
-        luaRcContent = lib.optionalString withConfig initLua;
+        luaRcContent = if withConfig then initLua else "";
+        wrapRc = withConfig;
 
         nativeBuildInputs = [ pkgs.makeWrapper ];
 
