@@ -118,7 +118,7 @@ let
         { plugin = friendly-snippets; optional = false; }
 
         # nvim-treesitter
-        { plugin = ts-plugin; optional = false; }
+        { plugin = nvim-treesitter.withAllGrammars; optional = false; }
         { plugin = nvim-treesitter-context; optional = true; }
 
         # colorscheme
