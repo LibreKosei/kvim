@@ -94,6 +94,7 @@ let
             p.typst
             p.haskell
             p.qmljs
+            p.svelte
         ]
     );
     plugins = with vimPlugins; [
