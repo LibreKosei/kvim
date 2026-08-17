@@ -141,7 +141,6 @@ let
             pkgs.ripgrep
             pkgs.nixfmt
             pkgs.fzf
-            pkgs.ghc
             pkgs.texlivePackages.latexmk
     ] ++ lib.optionals withLangServers languageServers;
     
