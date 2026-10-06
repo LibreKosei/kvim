@@ -135,6 +135,7 @@ let
         { plugin = bamboo-nvim; optional = true; }
         { plugin = pastel-nvim; optional = true; }
         { plugin = one-monokai-nvim; optional = true; }
+        { plugin = oxocarbon-nvim; optional = true; }
     ];
 
     buildInputs = [ 
