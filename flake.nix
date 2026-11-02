@@ -19,6 +19,11 @@
                 withConfig = false;
                 withLangServers = false;
             };
+            test = pkgs.callPackage ./default.nix {
+                appName = "test";
+                withConfig = true;
+                withLangServers = false;
+            };
         };
         apps.${system} = {
             default = {
