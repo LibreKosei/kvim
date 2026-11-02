@@ -117,9 +117,13 @@ let
         { plugin = luasnip; optional = false; }
         { plugin = friendly-snippets; optional = false; }
 
+        # folding
+        { plugin = nvim-ufo; optional = true; }
+        { plugin = promise-async; optional = true; }
+
         # nvim-treesitter
         { plugin = nvim-treesitter.withAllGrammars; optional = false; }
-        { plugin = nvim-treesitter-context; optional = true; }
+        { plugin = nvim-treesitter-context; optional = false; }
 
         # colorscheme
         { plugin = everblush-nvim; optional = true; }
