@@ -7,7 +7,7 @@ end
 require("lz.n").load {
     {
         "kanagawa.nvim",
-        colorscheme = { "kanagawa", "kanagawa-dragon", "kanagawa-lotus", "kanagawa-wave" }
+        colorscheme = match_colors("kanagawa"),
     },
     {
         "vimplugin-everblush.nvim",
@@ -15,40 +15,19 @@ require("lz.n").load {
     },
     {
         "tokyonight.nvim",
-        colorscheme = { "tokyonight", "tokyonight-storm", "tokyonight-day", "tokyonight-night", "tokyonight-moon" }
+        colorscheme = match_colors("tokyonight"),
     },
     {
         "material.nvim",
-        colorscheme = {
-            "material",
-            "material-darker",
-            "material-deep-ocean",
-            "material-lighter",
-            "material-palenight",
-            "material-oceanic"
-        },
+        colorscheme = match_colors("material"),
     },
     {
         "nightfox.nvim",
-        colorscheme = {
-            "nightfox",
-            "dayfox",
-            "dawnfox",
-            "duskfox",
-            "nordfox",
-            "terafox",
-            "carbonfox"
-        },
+        colorscheme = match_colors("fox"),
     },
     {
         "catppuccin-nvim",
-        colorscheme = {
-            "catppuccin",
-            "catppuccin-frappe",
-            "catppuccin-latte",
-            "catppuccin-macchiato",
-            "catppuccin-mocha",
-        },
+        colorscheme = match_colors("catppuccin"),
     },
     {
         "onedarkpro.nvim",
@@ -72,12 +51,7 @@ require("lz.n").load {
     },
     {
         "bamboo.nvim",
-        colorscheme = {
-            "bamboo",
-            "bamboo-light",
-            "bamboo-vulgaris",
-            "bamboo-multiplex",
-        },
+        colorscheme = match_colors("bamboo"),
     },
     {
         "vimplugin-pastel.nvim",
