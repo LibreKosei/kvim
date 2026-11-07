@@ -1,9 +1,7 @@
-require("lz.n").load {
-    {
-        "which-key.nvim",
-        event = "DeferredUIEnter",
-        after = function ()
-            require("which-key").setup({})
-        end,
-    }
+return {
+    "which-key.nvim",
+    event = "DeferredUIEnter",
+    after = function ()
+        require("which-key").setup({})
+    end,
 }

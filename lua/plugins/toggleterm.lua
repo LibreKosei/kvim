@@ -1,4 +1,4 @@
-require("lz.n").load {
+return {
     "toggleterm.nvim",
     keys = {
         {

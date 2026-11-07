@@ -1,9 +1,7 @@
-require('lz.n').load({
-    {
-        "gitsigns.nvim",
-        event = "DeferredUIEnter",
-        after = function ()
-            require('gitsigns').setup({})
-        end
-    }
-})
+return {
+    "gitsigns.nvim",
+    event = "BufReadPost",
+    after = function ()
+        require('gitsigns').setup({})
+    end,
+}

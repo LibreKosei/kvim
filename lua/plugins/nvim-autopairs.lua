@@ -1,4 +1,4 @@
-require("lz.n").load {
+return {
     "nvim-autopairs",
     event = "InsertEnter",
     after = function ()
