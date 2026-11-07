@@ -7,7 +7,12 @@ end
 require("lz.n").load {
     {
         "kanagawa.nvim",
-        colorscheme = match_colors("kanagawa"),
+        colorscheme = {
+            "kanagawa",
+            "kanagawa-wave",
+            "kanagawa-lotus",
+            "kanagawa-dragon",
+        },
     },
     {
         "vimplugin-everblush.nvim",
@@ -102,5 +107,17 @@ require("lz.n").load {
     {
         "oxocarbon.nvim",
         colorscheme = { "oxocarbon" },
+    },
+    {
+        "neovim-ayu",
+        colorscheme = match_colors("ayu"),
+    },
+    {
+        "tokyodark.nvim",
+        colorscheme = { "tokyodark" },
+    },
+    {
+        "kanagawa-paper",
+        colorscheme = { "kanagawa-paper", "kanagawa-paper-ink", "kanagawa-paper-canvas" },
     },
 }

@@ -18,6 +18,9 @@ with vimPlugins; [
     { plugin = bluloco-nvim;        optional = true; }
     { plugin = embark-vim;          optional = true; }
     { plugin = evergarden-nvim;     optional = true; }
+    { plugin = neovim-ayu;          optional = true; }
+    { plugin = tokyodark-nvim;      optional = true; }
+    { plugin = kanagawa-paper;      optional = true; }
 
     # color schemes which are not packaged yet
     { plugin = custom.everblush;    optional = true; }
