@@ -2,7 +2,7 @@ return {
     { "promise-async", dep_of = "nvim-ufo" },
     {
         "nvim-ufo",
-        ft = { "*" },
+        event = "BufReadPost",
         keys = {
             { "zR", function() require("ufo").openAllFolds() end,  desc = "Open all folds" },
             { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds" },
@@ -15,4 +15,4 @@ return {
             })
         end,
     },
-})
+}

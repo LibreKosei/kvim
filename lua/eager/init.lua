@@ -1,4 +1,4 @@
-require("lualine")
-require("treesitter")
-require("markview")
-require("luasnip")
+require("eager.lualine")
+require("eager.treesitter")
+require("eager.markview")
+require("eager.luasnip")

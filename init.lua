@@ -6,7 +6,7 @@ require('autocmd')
 
 --- Plugins
 require("lz.n").load("plugins")
-require('earger')
+require('eager')
 
 --- Language Server Protocols 
 require("lsp.lua_ls")

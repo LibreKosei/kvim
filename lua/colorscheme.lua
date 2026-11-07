@@ -23,7 +23,15 @@ require("lz.n").load {
     },
     {
         "nightfox.nvim",
-        colorscheme = match_colors("fox"),
+        colorscheme = {
+            "nightfox",
+            "duskfox",
+            "dayfox",
+            "dawnfox",
+            "nordfox",
+            "telafox",
+            "carbonfox",
+        },
     },
     {
         "catppuccin-nvim",
@@ -86,5 +94,13 @@ require("lz.n").load {
     {
         "evergarden-nvim",
         colorscheme = match_colors("evergarden"),
+    },
+    {
+        "bluloco.nvim",
+        colorscheme = match_colors("bluloco"),
+    },
+    {
+        "oxocarbon.nvim",
+        colorscheme = { "oxocarbon" },
     },
 }
