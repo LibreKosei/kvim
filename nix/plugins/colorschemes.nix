@@ -26,4 +26,4 @@ with vimPlugins; [
     { plugin = custom.oldworld;     optional = true; }
     { plugin = custom.ember;        optional = true; }
     { plugin = custom.shale;        optional = true; }
-];
+]

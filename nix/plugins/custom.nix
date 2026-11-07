@@ -1,4 +1,4 @@
-{ vimUtils, fetchFromGithub }:
+{ vimUtils, fetchFromGitHub }:
 {
   everblush = vimUtils.buildVimPlugin {
     name = "everblush.nvim";
@@ -32,31 +32,31 @@
 
   oldworld = vimUtils.buildVimPlugin {
     name = "oldworld.nvim";
-    src = fetchFromGithub {
+    src = fetchFromGitHub {
       owner = "dgox16";
       repo = "oldworld.nvim";
       rev = "db072a0bd2c90035fc3a57a73014cb54d3902f1f";
-      hash = "";
+      hash = "sha256-yO5XKSMwDu0/QYnoMbxWs+h0tfjftAYJYPrKO2XYfNQ=";
     };
   };
   
   ember = vimUtils.buildVimPlugin {
     name = "ember";
-    src = fetchFromGithub {
+    src = fetchFromGitHub {
       owner = "ember-theme";
       repo = "nvim";
       rev = "6f8ca3d0f228fbd61e5aeeb5c68343c410720873";
-      hash = "";
+      hash = "sha256-BTSilulR4R8K+jxn3ajt5BgakON9JP78t51i/qro+P0=";
     };
   };
 
   shale = vimUtils.buildVimPlugin {
     name = "shale.nvim";
-    src = fetchFromGithub {
+    src = fetchFromGitHub {
       owner = "smit4k";
       repo = "shale.nvim";
       rev = "d16e1976ce2b554d0883b8287a6a956eb1776819";
-      hash = "";
+      hash = "sha256-UDL5TgFbivilbTK0xyJOzRRmNcRREOe9lMPQS6CUO6g=";
     };
   };
 }

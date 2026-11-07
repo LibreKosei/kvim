@@ -9,21 +9,18 @@
         let
             system = "x86_64-linux";
             pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
-            kvim = pkgs.callPackage ./default.nix {};
+            kvim = pkgs.callPackage ./nix/default.nix {
+                appName = "kvim";
+                withConfig = true;
+                root = ./.;
+                extraPackages = with pkgs; [
+                    markdown-oxide
+                ];
+            };
         in 
     {
         packages.x86_64-linux = { 
-            default = pkgs.callPackage ./default.nix {};
-            neuvim = pkgs.callPackage ./default.nix {
-                appName = "neuvim";
-                withConfig = false;
-                withLangServers = false;
-            };
-            test = pkgs.callPackage ./default.nix {
-                appName = "test";
-                withConfig = true;
-                withLangServers = false;
-            };
+            default = kvim;
         };
         apps.${system} = {
             default = {

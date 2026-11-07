@@ -7,4 +7,4 @@ with vimPlugins; [
     { plugin = markview-nvim;       optional = true; }
     { plugin = nvim-ufo;            optional = true; }
     { plugin = promise-async;       optional = true; }
-];
+]

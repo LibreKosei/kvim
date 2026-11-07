@@ -12,4 +12,4 @@ with vimPlugins; [
     { plugin = nvim-colorizer-lua;              optional = true; }
 
     { plugin = nvim-treesitter.withAllGrammars; optional = false;}
-];
+]
