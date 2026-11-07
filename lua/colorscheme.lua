@@ -62,5 +62,29 @@ require("lz.n").load {
         colorscheme = {
             "one_monokai",
         },
-    }
+    },
+    {
+        "vimplugin-oldworld.nvim",
+        colorscheme = { "oldworld" },
+    },
+    {
+        "vimplugin-ember",
+        colorscheme = match_colors("ember"),
+    },
+    {
+        "embark-nvim",
+        colorscheme = { "embark" },
+    },
+    {
+        "edge",
+        colorscheme = { "edge" },
+    },
+    {
+        "vimplugin-shale.nvim",
+        colorscheme = { "shale" },
+    },
+    {
+        "evergarden-nvim",
+        colorscheme = match_colors("evergarden"),
+    },
 }
