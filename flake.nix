@@ -7,26 +7,30 @@
 
     outputs = { self, nixpkgs, ... }: 
         let
-            system = "x86_64-linux";
-            pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
-            kvim = pkgs.callPackage ./nix/default.nix {
-                appName = "kvim";
-                withConfig = true;
-                root = ./.;
-                extraPackages = with pkgs; [
-                    markdown-oxide
-                ];
+            systems = [ "x86_64-linux" ];
+            forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+            pkgsFor = system: import nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
             };
         in 
     {
-        packages.x86_64-linux = { 
-            default = kvim;
-        };
-        apps.${system} = {
+        packages = forAllSystems (system: 
+            let kvim = (pkgsFor system).callPackage ./nix { root = ./.; };
+            in { default = kvim; }
+        );
+
+        apps = forAllSystems (system: {
             default = {
                 type = "app";
-                program = "${kvim}/bin/kvim";
+                program = "${self.packages.${system}.default}/bin/kvim";
             };
+        });
+
+        overlays.default = final: prev: {
+            kvim = final.callPackage ./nix { root = ./.; };
         };
+
+        nixosModules.default = import ./nix/modules/nixos.nix { inherit self; };
     };
 }
