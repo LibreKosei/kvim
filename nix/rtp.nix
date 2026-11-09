@@ -20,16 +20,20 @@ stdenv.mkDerivation {
         inherit root fileset;
     };
     buildPhase = ''
-        mkdir -p $out/{nvim,lua}
+        mkdir -p $out/{nvim,lua,after}
         rm -f init.lua 
     '';
     installPhase = ''
-        cp -r lua $out/lua 
-        rm -r lua 
+        if [ -d "lua" ]; then
+            cp -r lua/. $out/lua/
+            rm -r lua 
+        fi
+        
         if [ -d "after" ]; then 
-            cp -r after $out/after 
+            cp -r after/. $out/after/
             rm -r after 
         fi
+
         if [ ! -z "$(ls -A)" ]; then 
             cp -r -- * $out/nvim 
         fi
