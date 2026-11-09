@@ -22,7 +22,7 @@ let
   ] ++ lib.optionals (extraPackages != []) extraPackages;
   
   initLua = ''
-      vim.opt.rtp:prepend('${rtp}/lua')
+      vim.opt.rtp:prepend('${rtp}')
   ''
   + builtins.readFile (root + "/init.lua")
   + ''
@@ -39,7 +39,6 @@ let
       wrapperArgs = [
           "--set" "NVIM_APPNAME" appName
       ] ++ lib.optionals withConfig [
-          "--set" "KVIM_RUNTIME" "${rtp}"
           "--prefix" "PATH" ":" (lib.makeBinPath buildInputs)
       ];
       
