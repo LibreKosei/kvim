@@ -31,5 +31,8 @@ return {
                 default = { "lsp", "path", "snippets", },
             },
         })
+        vim.lsp.config("*", {
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
+        })
     end,
 }
