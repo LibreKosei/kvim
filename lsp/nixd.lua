@@ -1,4 +1,4 @@
-vim.lsp.config('nixd', {
+return {
     cmd = { 'nixd' },
     filetypes = { 'nix' },
     root_markers = { 'flake.nix', '.git' },
@@ -20,12 +20,4 @@ vim.lsp.config('nixd', {
             },
         },
     }
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "nix",
-    callback = function ()
-        vim.lsp.enable("nixd")
-        vim.treesitter.start()
-    end
-})
+}

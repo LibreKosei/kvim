@@ -1,4 +1,4 @@
-vim.lsp.config('rust_analyzer', {
+return {
     cmd = { 'rust-analyzer' },
     filetypes = { 'rust' },
     settings = {
@@ -19,12 +19,4 @@ vim.lsp.config('rust_analyzer', {
             },
         },
     },
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "rust",
-    callback = function ()
-        vim.lsp.enable("rust_analyzer")
-        vim.treesitter.start()
-    end
-})
+}

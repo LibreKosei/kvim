@@ -1,7 +1,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.lsp.config('css', {
+return {
     cmd = { 'vscode-css-language-server', '--stdio' },
     filetypes = { 'css', 'scss', 'less' },
     root_markers = { '.git', 'package.json' },
@@ -20,11 +20,4 @@ vim.lsp.config('css', {
             validate = true
         },
     },
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "css",
-    callback = function ()
-        vim.lsp.enable("cssls")
-    end
-})
+}
