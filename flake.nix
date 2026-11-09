@@ -16,7 +16,12 @@
         in 
     {
         packages = forAllSystems (system: 
-            let kvim = (pkgsFor system).callPackage ./nix { root = ./.; };
+            let 
+                pkgs = pkgsFor system;
+                kvim = pkgs.callPackage ./nix { 
+                    root = ./.;
+                    extraPackages = with pkgs; [ lua-language-server ];
+                };
             in { default = kvim; }
         );
 
