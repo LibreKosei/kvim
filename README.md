@@ -5,30 +5,42 @@ To try it out without installing,
 nix run https://github.com/LibreKosei/kvim
 ```
 
-To install, add the following to flake.nix
+To install, add the following to `flake.nix`
 ```nix
 {
     inputs = {
         # ...
-        kvim = {
-            url = "github:LibreKosei/kvim";
-            inputs.nixpkgs.follows = "nixpkgs"; # suppose you have the nixpkgs as one of the inputs already
+        kvim.url = "github:LibreKosei/kvim";
+    };
+
+    outputs = { self, kvim, ...}@inputs:
+    let
+        system = "x64_64-linux";
+        lib = nixpkgs.lib;
+    in {
+        nixosConfigurations.<your-username> = {
+            # snippets
+            modules = [ kvim.nixosModules.default ];
         };
     };
 }
 ```
+
 Then
-```nix
+```nix configuration.nix
 { inputs, pkgs, ...}:
 {
-    home.packages = [
-        inputs.kvim.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
+    programs.kvim = {
+        enable = true;
+        appName = "kvim"; # Replace with your favorite name to override the binary name
+        extraPackages = with pkgs; [
+            lua-language-server
+            nixd
+            markdown-oxide
+        ]; # packages to be added to kvim's $PATH
+    };
 }
 ```
 
----
-
-Currently, the only tested architecture is x86_64, and as of now I am not planning to support others.
-
-
+> [!INFO]
+> Currently, the only tested architecture is x86_64, and I am not planning to support others.
