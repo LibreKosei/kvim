@@ -121,3 +121,39 @@ require("lz.n").load {
         colorscheme = { "kanagawa-paper", "kanagawa-paper-ink", "kanagawa-paper-canvas" },
     },
 }
+
+local state_file = vim.fn.stdpath("data") .. "/colorscheme"
+
+local function read(sf)
+    local f = io.open(sf, 'r')
+
+    if not f then
+        return nil
+    end
+
+    local name = f:read("*l")
+    f:close()
+    return name
+end
+
+local function write(name, file)
+    local f = io.open(file, 'w')
+
+    if f then
+        f:write(name)
+        f:close()
+    end
+end
+
+local fallback = "catppuccin"
+local saved = read(state_file)
+local ok = saved and pcall(vim.cmd.colorscheme, saved)
+if not ok then
+    pcall(vim.cmd.packadd, fallback)
+    pcall(vim.cmd.colorscheme, fallback)
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup("kvim-colorscheme-persiste", { clear = true }),
+    callback = function(ev) write(ev.match, state_file) end,
+})

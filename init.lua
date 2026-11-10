@@ -12,4 +12,4 @@ require('eager')
 require("lsp")
 
 --- Lua
-vim.cmd.colorscheme("kanagawa")
+-- vim.cmd.colorscheme("kanagawa")
